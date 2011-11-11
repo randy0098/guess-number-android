@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, GuessNumberActivity!</string>
+    <string name="app_name">猜数字游戏</string>
+    <string name="app_name_cn">猜数字游戏</string>
+    <string name="app_start">开始</string>
+    <string name="app_input_number_hint">请输入4位数字：</string>
+    <string name="app_confirm">确认</string>
+    <string name="app_left_times_hint">剩余次数：</string>
+    <string name="app_left_times">8</string>
+    <string name="app_result_hint">结果：</string>
+    <string name="app_result">请输入4位数字。</string>
+    <string name="app_restart">重新开始游戏</string>
+</resources>
