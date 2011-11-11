@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:weightSum="1">
+	<TableLayout android:layout_height="fill_parent"
+		android:id="@+id/tableLayout1" android:layout_width="fill_parent"
+		android:stretchColumns="2">
+		<TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<TextView android:text="@string/app_input_number_hint"
+				android:textStyle="bold" android:gravity="left" android:padding="3dip" />
+			<EditText android:inputType="number" android:id="@+id/editText1"
+				android:layout_height="wrap_content" android:scrollHorizontally="true"
+				android:padding="3dip" android:maxLength="4">
+				<requestFocus></requestFocus>
+			</EditText>
+			<Button android:id="@+id/button1" android:layout_width="wrap_content"
+				android:text="@string/app_confirm" android:layout_height="wrap_content"></Button>
+		</TableRow>
+		<TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<TextView android:text="@string/app_left_times_hint"
+				android:textStyle="bold" android:gravity="left" android:padding="3dip" />
+			<TextView android:id="@+id/text1" android:text="@string/app_left_times"
+				android:textStyle="bold" android:gravity="left" android:padding="3dip" />
+		</TableRow>
+		<TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<TextView android:text="@string/app_result_hint"
+				android:textStyle="bold" android:gravity="left" android:padding="3dip" />
+			<TextView android:id="@+id/text2" android:text="@string/app_result"
+				android:textStyle="bold" android:gravity="left" android:padding="3dip" android:maxLines="3"/>
+			<Button android:id="@+id/button2" android:layout_width="wrap_content"
+				android:text="@string/app_restart" android:layout_height="wrap_content" android:visibility="invisible"></Button>
+		</TableRow>
+		<TableRow android:id="@+id/tableRow4" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<TextView android:text="" android:visibility="invisible" android:padding="3dip"/>
+			<TextView android:id="@+id/text3" 
+				android:textStyle="bold" android:gravity="left" android:padding="3dip" />
+		</TableRow>
+	</TableLayout>
+</TableLayout>
