@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="wrap_content" android:layout_width="wrap_content">
+    <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="64dp" android:text="@string/app_name_cn" android:id="@+id/textView1" android:gravity="center" android:layout_width="wrap_content" android:layout_x="111dp" android:layout_y="119dp"></TextView>
+    <Button android:layout_height="wrap_content" android:id="@+id/button1" android:text="@string/app_start" android:layout_width="157dp" android:layout_x="87dp" android:layout_y="256dp"></Button>
+</AbsoluteLayout>

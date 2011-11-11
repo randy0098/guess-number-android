@@ -28,6 +28,8 @@ public class PlayActivity extends Activity {
 					// TODO Auto-generated method stub
 			        EditText editText= (EditText) findViewById(R.id.editText1);
 			        String inputNumber = editText.getText().toString();
+			        //清除输入数字
+			        editText.setText("");
 			        //如果用户输入的数字不够4位就在前端补0
 			        if(inputNumber.length()==0){
 			        	inputNumber = "0000";
@@ -38,23 +40,24 @@ public class PlayActivity extends Activity {
 			        }else if(inputNumber.length()==3){
 			        	inputNumber = "0" + inputNumber;
 			        }
+			        //剩余次数减1
+		        	TextView text1= (TextView) findViewById(R.id.text1);
+			        String leftTimes = text1.getText().toString();
+			        text1.setText(String.valueOf(Integer.parseInt(leftTimes)-1));
 			        //获得比较结果
 			        String compareResult = PlayActivity.compareNumbers(inputNumber,generatedNumber);
+		        	TextView text3= (TextView) findViewById(R.id.text3);
+		        	String resultList = text3.getText().toString();
+		        	resultList = resultList + inputNumber + "→" + compareResult + "\n";
+			        text3.setText(resultList);
 			        //没有猜对数字时
 			        if(compareResult.equalsIgnoreCase("4A0B") == false){
-			        	TextView text1= (TextView) findViewById(R.id.text1);
-				        String leftTimes = text1.getText().toString();
-			        	//剩余次数大于0时，剩余次数减1
-				        if(Integer.parseInt(leftTimes)>0){
-					        text1.setText(String.valueOf(Integer.parseInt(leftTimes)-1));
+			        	//剩余次数大于0时
+				        if(Integer.parseInt(leftTimes)-1>0){
 					        //生成结果信息
-					        String result = "您还没有猜中数字，\n请再接再励！";
+					        String result = "没有猜中数字，\n请再接再励！";
 				        	TextView text2= (TextView) findViewById(R.id.text2);
 					        text2.setText(result);
-				        	TextView text3= (TextView) findViewById(R.id.text3);
-				        	String resultList = text3.getText().toString();
-				        	resultList = resultList + inputNumber + "→" + compareResult + "\n";
-					        text3.setText(resultList);
 			        	}
 				        //没有剩余次数时结束游戏
 				        else{
@@ -62,7 +65,7 @@ public class PlayActivity extends Activity {
 				        	TableRow row1 = (TableRow) findViewById(R.id.tableRow1);
 				        	row1.setVisibility(4);
 				        	//显示重新开始游戏按钮
-					        String result = "很遗憾，\n您没有猜对数字";
+					        String result = "正确数字为\n"+generatedNumber;
 				        	TextView text2= (TextView) findViewById(R.id.text2);
 					        text2.setText(result);
 				        	Button button2 = (Button) findViewById(R.id.button2);
@@ -76,7 +79,7 @@ public class PlayActivity extends Activity {
 			        	TableRow row1 = (TableRow) findViewById(R.id.tableRow1);
 			        	row1.setVisibility(4);
 			        	//显示重新开始游戏按钮
-				        String result = "您已经猜对了数字，\n您真聪明！";
+				        String result = "数字正确，\n您真聪明！";
 			        	TextView text2= (TextView) findViewById(R.id.text2);
 				        text2.setText(result);
 			        	Button button2 = (Button) findViewById(R.id.button2);
@@ -101,12 +104,17 @@ public class PlayActivity extends Activity {
         );
 	}
 
-	// 随机生成digit位数字
+	// 随机生成digit位数字，并且确保每位数字各不相同
 	public static String generateNumbers(int digit) {
+		HashMap generatedNums = new HashMap();
 		String result = "";
-		for (int i = 0; i < digit; i++) {
+		
+		while(generatedNums.size()<digit){
 			int num = (int) (Math.random() * 10);
-			result = result + new Integer(num).toString();
+			if(generatedNums.containsKey(num)==false){
+				result = result + new Integer(num).toString();
+				generatedNums.put(num, num);
+			}
 		}
 		return result;
 	}
