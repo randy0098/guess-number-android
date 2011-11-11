@@ -4,7 +4,7 @@
     <string name="app_name">猜数字游戏</string>
     <string name="app_name_cn">猜数字游戏</string>
     <string name="app_start">开始</string>
-    <string name="app_input_number_hint">请输入4位数字：</string>
+    <string name="app_input_number_hint">输入4位数字：</string>
     <string name="app_confirm">确认</string>
     <string name="app_left_times_hint">剩余次数：</string>
     <string name="app_left_times">8</string>
